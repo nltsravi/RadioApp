@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AppSettings" representedClassName="AppSettings" syncable="YES" codeGenerationType="class">
+        <attribute name="enabledBands" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="enabledModes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="enableHaptic" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="enableSounds" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="localOnly" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="defaultSort" optional="YES" attributeType="String" defaultValueString="DateDesc"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="QSO" representedClassName="QSO" syncable="YES" codeGenerationType="class">
+        <attribute name="antenna" optional="YES" attributeType="String"/>
+        <attribute name="band" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="callsign" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="contestName" optional="YES" attributeType="String"/>
+        <attribute name="datetime" optional="YES" attributeType="Date" indexed="YES"/>
+        <attribute name="dxcc" optional="YES" attributeType="String"/>
+        <attribute name="frequencyMHz" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="grid" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="mode" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="operatorCallsign" optional="YES" attributeType="String"/>
+        <attribute name="qslMethod" optional="YES" attributeType="String"/>
+        <attribute name="qslReceived" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="qslReceivedDate" optional="YES" attributeType="Date"/>
+        <attribute name="qslSent" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="qslSentDate" optional="YES" attributeType="Date"/>
+        <attribute name="qsoDurationSec" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="qth" optional="YES" attributeType="String"/>
+        <attribute name="rig" optional="YES" attributeType="String"/>
+        <attribute name="rstReceived" optional="YES" attributeType="String"/>
+        <attribute name="rstSent" optional="YES" attributeType="String"/>
+        <attribute name="serialReceived" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="serialSent" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="txPowerW" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="station" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StationProfile" inverseName="qsos" inverseEntity="StationProfile"/>
+    </entity>
+    <entity name="StationProfile" representedClassName="StationProfile" syncable="YES" codeGenerationType="class">
+        <attribute name="defaultBand" optional="YES" attributeType="String"/>
+        <attribute name="defaultMode" optional="YES" attributeType="String"/>
+        <attribute name="defaultPowerW" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDefault" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="operatorCallsign" optional="YES" attributeType="String"/>
+        <attribute name="rig" optional="YES" attributeType="String"/>
+        <attribute name="antenna" optional="YES" attributeType="String"/>
+        <relationship name="qsos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QSO" inverseName="station" inverseEntity="QSO"/>
+    </entity>
 </model>

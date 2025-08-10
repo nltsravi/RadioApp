@@ -10,11 +10,18 @@ import SwiftUI
 @main
 struct RadioAppApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject private var qsoViewModel: QSOViewModel
+    
+    init() {
+        let context = PersistenceController.shared.container.viewContext
+        _qsoViewModel = StateObject(wrappedValue: QSOViewModel(context: context))
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(qsoViewModel)
         }
     }
 }
