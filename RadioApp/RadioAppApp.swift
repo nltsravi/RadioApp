@@ -11,6 +11,7 @@ import SwiftUI
 struct RadioAppApp: App {
     let persistenceController = PersistenceController.shared
     @StateObject private var qsoViewModel: QSOViewModel
+    @StateObject private var authViewModel = AuthViewModel()
     @State private var showSplash = true
     
     init() {
@@ -24,6 +25,7 @@ struct RadioAppApp: App {
                 MainTabView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .environmentObject(qsoViewModel)
+                    .environmentObject(authViewModel)
                     .zIndex(0)
 
                 if showSplash {
