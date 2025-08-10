@@ -11,6 +11,7 @@ import SwiftUI
 struct RadioAppApp: App {
     let persistenceController = PersistenceController.shared
     @StateObject private var qsoViewModel: QSOViewModel
+    @State private var showSplash = true
     
     init() {
         let context = PersistenceController.shared.container.viewContext
@@ -19,9 +20,26 @@ struct RadioAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(qsoViewModel)
+            ZStack {
+                MainTabView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .environmentObject(qsoViewModel)
+                    .zIndex(0)
+
+                if showSplash {
+                    SplashView()
+                        .transition(.opacity)
+                        .zIndex(1)
+                }
+            }
+            .onAppear {
+                // Dismiss splash after 3 seconds
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    withAnimation(.easeInOut(duration: 0.4)) {
+                        showSplash = false
+                    }
+                }
+            }
         }
     }
 }

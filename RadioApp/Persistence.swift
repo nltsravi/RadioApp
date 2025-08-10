@@ -8,8 +8,9 @@
 import CoreData
 import CloudKit
 
-struct PersistenceController {
+final class PersistenceController {
     static let shared = PersistenceController()
+    private let isInMemoryStore: Bool
     
     // MARK: - CloudKit Configuration
     private static let cloudKitContainerIdentifier = "iCloud.com.yourcompany.qsolog"
@@ -36,6 +37,7 @@ struct PersistenceController {
     
     // MARK: - Initialization
     init(inMemory: Bool = false) {
+        self.isInMemoryStore = inMemory
         container = NSPersistentCloudKitContainer(name: "RadioApp")
         
         if inMemory {
@@ -61,6 +63,10 @@ struct PersistenceController {
                 }
             } else {
                 print("Core Data store loaded successfully")
+                // Seed default stations on first launch if none exist (skip for in-memory stores)
+                if !self.isInMemoryStore {
+                    self.seedDefaultStationsIfNeeded()
+                }
             }
         }
         
@@ -147,6 +153,39 @@ struct PersistenceController {
         settings.enabledModes = ["SSB", "CW", "FT8", "FT4", "RTTY", "PSK31"]
         settings.enableHaptic = true
         settings.enableSounds = true
+    }
+    
+    // MARK: - Default Data Seeding (App Runtime)
+    private func seedDefaultStationsIfNeeded() {
+        let context = container.viewContext
+        context.perform {
+            let fetchRequest: NSFetchRequest<StationProfile> = StationProfile.fetchRequest()
+            fetchRequest.fetchLimit = 1
+            do {
+                let existingCount = try context.count(for: fetchRequest)
+                if existingCount == 0 {
+                    // Define a simple default list of stations
+                    let defaultStations: [(name: String, defaultBand: String, defaultMode: String, defaultPower: Double)] = [
+                        ("Home", "20m", "SSB", 100.0),
+                        ("Portable", "40m", "CW", 50.0),
+                        ("Mobile", "2m", "FM", 25.0)
+                    ]
+                    for (index, template) in defaultStations.enumerated() {
+                        let station = StationProfile(context: context)
+                        station.id = UUID()
+                        station.name = template.name
+                        station.defaultBand = template.defaultBand
+                        station.defaultMode = template.defaultMode
+                        station.defaultPowerW = template.defaultPower
+                        station.isDefault = (index == 0)
+                    }
+                    try context.save()
+                    print("Seeded default StationProfile list")
+                }
+            } catch {
+                print("Failed to seed default stations: \(error)")
+            }
+        }
     }
     
     // MARK: - Save Context
