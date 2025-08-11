@@ -1,0 +1,152 @@
+{
+  "source": "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/BrowseLogsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Browse Logs",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 153
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading QSOs...",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search callsign, grid, DXCC...",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "No QSOs Found",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "Try adjusting your search or filters",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 105
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "Duplicate",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 124
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSL Sent ✓",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 134
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mark Sent",
+        "location": {
+          "startingColumn": 71,
+          "startingLine": 134
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSL Rcvd ✓",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 139
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mark Rcvd",
+        "location": {
+          "startingColumn": 75,
+          "startingLine": 139
+        }
+      },
+      {
+        "comment": "",
+        "key": "Filters",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 157
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export ADIF",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 164
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export CSV",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 168
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear Filters",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 219
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lldW",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 277
+        }
+      }
+    ]
+  },
+  "version": 1
+}

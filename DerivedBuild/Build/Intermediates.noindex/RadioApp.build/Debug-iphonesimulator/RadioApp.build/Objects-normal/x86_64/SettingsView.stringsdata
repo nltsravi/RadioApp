@@ -1,0 +1,424 @@
+{
+  "source": "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Settings",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "Configuration",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Data Management",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Privacy & Sync",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 90
+        }
+      },
+      {
+        "comment": "",
+        "key": "App Settings",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "About & Support",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 149
+        }
+      },
+      {
+        "comment": "",
+        "key": "Station Profiles",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 213
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 253
+        }
+      },
+      {
+        "comment": "",
+        "key": "New Station",
+        "location": {
+          "startingColumn": 47,
+          "startingLine": 343
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit Station",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 343
+        }
+      },
+      {
+        "comment": "",
+        "key": "Basic Information",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 306
+        }
+      },
+      {
+        "comment": "",
+        "key": "Equipment",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 312
+        }
+      },
+      {
+        "comment": "",
+        "key": "Defaults",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 317
+        }
+      },
+      {
+        "comment": "",
+        "key": "Station Name",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 307
+        }
+      },
+      {
+        "comment": "",
+        "key": "Operator Callsign",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 308
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rig",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 313
+        }
+      },
+      {
+        "comment": "",
+        "key": "Antenna",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 314
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default Band",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 318
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default Mode",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 324
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default Power",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 331
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lldW",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 333
+        }
+      },
+      {
+        "comment": "",
+        "key": "Set as Default Station",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 340
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 347
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 353
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bands & Modes",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 451
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available Bands",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 424
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available Modes",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 435
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import/Export",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 480
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 464
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 474
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export to ADIF",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 465
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export to CSV",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 469
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import from ADIF",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 475
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 542
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export QSOs",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 519
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export your QSO log in ADIF format for use with other logging software.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 523
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export All QSOs",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 529
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export Filtered QSOs",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 534
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 546
+        }
+      },
+      {
+        "comment": "",
+        "key": "About",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 622
+        }
+      },
+      {
+        "comment": "",
+        "key": "Features",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 607
+        }
+      },
+      {
+        "comment": "",
+        "key": "Privacy",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 616
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSO Log",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 595
+        }
+      },
+      {
+        "comment": "",
+        "key": "Version 1.0.0",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 599
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Fast QSO logging",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 608
+        }
+      },
+      {
+        "comment": "",
+        "key": "• ADIF import/export",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 609
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Station profiles",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 610
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Analytics and statistics",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 611
+        }
+      },
+      {
+        "comment": "",
+        "key": "• iCloud sync",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 612
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Offline-first design",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 613
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSO Log respects your privacy. All data is stored locally on your device and optionally synced to your private iCloud account.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 617
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,344 @@
+{
+  "source": "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/QSODetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "QSO Details",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 214
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Basic Information",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Location",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "Equipment",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contest Information",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 128
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSL Status",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 157
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 196
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 218
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 224
+        }
+      },
+      {
+        "comment": "",
+        "key": "Yes",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "No",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit QSO",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 433
+        }
+      },
+      {
+        "comment": "",
+        "key": "Basic Information",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 307
+        }
+      },
+      {
+        "comment": "",
+        "key": "RST Reports",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 342
+        }
+      },
+      {
+        "comment": "",
+        "key": "Location",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 363
+        }
+      },
+      {
+        "comment": "",
+        "key": "Equipment",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 382
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contest",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 401
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 425
+        }
+      },
+      {
+        "comment": "",
+        "key": "Callsign",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 308
+        }
+      },
+      {
+        "comment": "",
+        "key": "Band",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 314
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mode",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 323
+        }
+      },
+      {
+        "comment": "",
+        "key": "Frequency (MHz)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 333
+        }
+      },
+      {
+        "comment": "",
+        "key": "0.000",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 335
+        }
+      },
+      {
+        "comment": "",
+        "key": "RST Sent",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 343
+        }
+      },
+      {
+        "comment": "",
+        "key": "RST Received",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 348
+        }
+      },
+      {
+        "comment": "",
+        "key": "Power (W)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 354
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 356
+        }
+      },
+      {
+        "comment": "",
+        "key": "Grid Square",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 364
+        }
+      },
+      {
+        "comment": "",
+        "key": "DXCC",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 370
+        }
+      },
+      {
+        "comment": "",
+        "key": "QTH",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 375
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rig",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 383
+        }
+      },
+      {
+        "comment": "",
+        "key": "Antenna",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 388
+        }
+      },
+      {
+        "comment": "",
+        "key": "Operator",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 393
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contest Name",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 402
+        }
+      },
+      {
+        "comment": "",
+        "key": "Serial Sent",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 408
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 410
+        }
+      },
+      {
+        "comment": "",
+        "key": "Serial Received",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 416
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 418
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 426
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 437
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 443
+        }
+      }
+    ]
+  },
+  "version": 1
+}

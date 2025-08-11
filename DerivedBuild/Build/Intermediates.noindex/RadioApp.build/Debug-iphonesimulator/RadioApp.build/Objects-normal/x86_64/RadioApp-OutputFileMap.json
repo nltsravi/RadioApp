@@ -1,0 +1,228 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp-master.dia",
+    "emit-module-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp-master.swiftdeps"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/CoreDataGenerated/RadioApp/AppSettings+CoreDataClass.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/CoreDataGenerated/RadioApp/AppSettings+CoreDataProperties.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AppSettings+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/CoreDataGenerated/RadioApp/QSO+CoreDataClass.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/CoreDataGenerated/RadioApp/QSO+CoreDataProperties.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSO+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/CoreDataGenerated/RadioApp/RadioApp+CoreDataModel.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioApp+CoreDataModel~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/CoreDataGenerated/RadioApp/StationProfile+CoreDataClass.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/CoreDataGenerated/RadioApp/StationProfile+CoreDataProperties.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/StationProfile+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Models/BandModeCatalog.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BandModeCatalog~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Persistence.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/Persistence~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/RadioAppApp.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/RadioAppApp~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Services/ADIFService.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/ADIFService~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/ViewModels/QSOViewModel.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSOViewModel~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/AnalyticsView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/AnalyticsView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/BrowseLogsView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/BrowseLogsView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/FilterView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FilterView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/FullLogView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/FullLogView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/LogQSOView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/LogQSOView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/MainTabView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/MainTabView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/QSODetailView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QSODetailView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/QuickLogView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/QuickLogView~partial.swiftmodule"
+  },
+  "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/SettingsView.swift" : {
+    "const-values" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView.d",
+    "diagnostics" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView.dia",
+    "index-unit-output-path" : "/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView.o",
+    "llvm-bc" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView.bc",
+    "object" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView.o",
+    "swift-dependencies" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Users/ravij/iOSProjects/RadioApp/DerivedBuild/Build/Intermediates.noindex/RadioApp.build/Debug-iphonesimulator/RadioApp.build/Objects-normal/x86_64/SettingsView~partial.swiftmodule"
+  }
+}

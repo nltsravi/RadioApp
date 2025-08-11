@@ -1,0 +1,280 @@
+{
+  "source": "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/FullLogView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Log QSO",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 32
+        }
+      },
+      {
+        "comment": "",
+        "key": "Basic Information",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "RST Reports",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "Location",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 107
+        }
+      },
+      {
+        "comment": "",
+        "key": "Equipment",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 127
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contest",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 162
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSL Information",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 195
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 202
+        }
+      },
+      {
+        "comment": "",
+        "key": "Callsign",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date & Time",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Band",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mode",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "Frequency (MHz)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "0.000",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "RST Sent",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "RST Received",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "Power (W)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 97
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 99
+        }
+      },
+      {
+        "comment": "",
+        "key": "Grid Square",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "DXCC",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "QTH",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 119
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rig",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 128
+        }
+      },
+      {
+        "comment": "",
+        "key": "Antenna",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 133
+        }
+      },
+      {
+        "comment": "",
+        "key": "Operator",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 138
+        }
+      },
+      {
+        "comment": "",
+        "key": "Station Profile",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 149
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contest Name",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 163
+        }
+      },
+      {
+        "comment": "",
+        "key": "Serial Sent",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 171
+        }
+      },
+      {
+        "comment": "",
+        "key": "Serial Received",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 177
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "Duration (seconds)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 185
+        }
+      },
+      {
+        "comment": "",
+        "key": "0",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSL functionality will be added in a future update",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 196
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 203
+        }
+      }
+    ]
+  },
+  "version": 1
+}

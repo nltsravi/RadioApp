@@ -1,0 +1,192 @@
+{
+  "source": "/Users/ravij/iOSProjects/RadioApp/RadioApp/Views/AnalyticsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Analytics",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSOs by Band",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "Band",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "Count",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSOs by Mode",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "Count",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mode",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 90
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recent Activity (Last 30 Days)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 102
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSOs",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 117
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSOs",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "QSL Statistics",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "Top Bands",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 157
+        }
+      },
+      {
+        "comment": "",
+        "key": "Top Modes",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 173
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Analytics Available",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 193
+        }
+      },
+      {
+        "comment": "",
+        "key": "Log some QSOs to see your statistics",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 197
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 267
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 272
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 308
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%lld%%)",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 312
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 340
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%lld%%)",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 344
+        }
+      }
+    ]
+  },
+  "version": 1
+}
