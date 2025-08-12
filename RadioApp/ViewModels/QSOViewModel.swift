@@ -9,6 +9,29 @@ import Foundation
 import CoreData
 import SwiftUI
 
+// MARK: - Data Statistics
+struct DataStatistics {
+    let qsoCount: Int
+    let stationCount: Int
+    let totalContacts: Int
+    let uniqueCallsigns: Int
+    let dateRange: (earliest: Date?, latest: Date?)
+    
+    var hasData: Bool {
+        return qsoCount > 0
+    }
+    
+    var dateRangeText: String {
+        guard let earliest = dateRange.earliest, let latest = dateRange.latest else {
+            return "No data"
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return "\(formatter.string(from: earliest)) - \(formatter.string(from: latest))"
+    }
+}
+
 @MainActor
 class QSOViewModel: ObservableObject {
     private let context: NSManagedObjectContext
@@ -388,6 +411,71 @@ class QSOViewModel: ObservableObject {
         tempContext.rollback()
         
         return result
+    }
+    
+    // MARK: - Data Management
+    func getDataStatistics() -> DataStatistics {
+        let qsoCount = qsos.count
+        let stationCount = getStationCount()
+        let totalContacts = qsos.count
+        let uniqueCallsigns = Set(qsos.compactMap { $0.callsign }).count
+        let dateRange = getDateRange()
+        
+        return DataStatistics(
+            qsoCount: qsoCount,
+            stationCount: stationCount,
+            totalContacts: totalContacts,
+            uniqueCallsigns: uniqueCallsigns,
+            dateRange: dateRange
+        )
+    }
+    
+    func resetAllData() -> Bool {
+        do {
+            // Delete all QSOs
+            let qsoRequest: NSFetchRequest<NSFetchRequestResult> = QSO.fetchRequest()
+            let qsoDeleteRequest = NSBatchDeleteRequest(fetchRequest: qsoRequest)
+            try context.execute(qsoDeleteRequest)
+            
+            // Delete all Station Profiles (except default)
+            let stationRequest: NSFetchRequest<NSFetchRequestResult> = StationProfile.fetchRequest()
+            stationRequest.predicate = NSPredicate(format: "name != %@", "Home Station")
+            let stationDeleteRequest = NSBatchDeleteRequest(fetchRequest: stationRequest)
+            try context.execute(stationDeleteRequest)
+            
+            // Reset all published properties
+            qsos = []
+            filteredQSOs = []
+            selectedStation = nil
+            analytics = nil
+            
+            // Ensure default station exists
+            ensureDefaultStationExists()
+            
+            // Save context
+            saveContext()
+            
+            return true
+        } catch {
+            print("Error resetting data: \(error)")
+            return false
+        }
+    }
+    
+    private func getStationCount() -> Int {
+        let request: NSFetchRequest<StationProfile> = StationProfile.fetchRequest()
+        do {
+            return try context.count(for: request)
+        } catch {
+            return 0
+        }
+    }
+    
+    private func getDateRange() -> (earliest: Date?, latest: Date?) {
+        guard !qsos.isEmpty else { return (nil, nil) }
+        
+        let sortedQSOs = qsos.sorted { ($0.datetime ?? Date.distantPast) < ($1.datetime ?? Date.distantPast) }
+        return (sortedQSOs.first?.datetime, sortedQSOs.last?.datetime)
     }
     
     // MARK: - Helper Methods

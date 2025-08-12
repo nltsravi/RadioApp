@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State private var showingBandModeSettings = false
     @State private var showingImportExport = false
     @State private var showingAbout = false
+    @State private var showingResetData = false
     
     private let privacyPolicyURL = URL(string: "https://example.com/privacy")!
     private let termsURL = URL(string: "https://example.com/terms")!
@@ -60,7 +61,7 @@ struct SettingsView: View {
                 }
                 
                 Button(action: {
-                    // TODO: Implement data reset
+                    showingResetData = true
                 }) {
                     SettingsRow(
                         icon: "trash",
@@ -181,6 +182,9 @@ struct SettingsView: View {
                 Text("About & Support")
             }
         }
+        .sheet(isPresented: $showingResetData) {
+            ResetDataView()
+        }
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
         .scrollContentBackground(.hidden)
@@ -206,6 +210,7 @@ struct SettingsRow: View {
                 Text(title)
                     .font(.body)
                     .fontWeight(.medium)
+                    .foregroundColor(.primary)
                 
                 Text(subtitle)
                     .font(.caption)
@@ -1084,6 +1089,197 @@ struct AboutView: View {
         }
         .navigationTitle("About")
         .navigationBarTitleDisplayMode(.large)
+    }
+}
+
+// MARK: - Reset Data View
+struct ResetDataView: View {
+    @EnvironmentObject var qsoViewModel: QSOViewModel
+    @Environment(\.dismiss) private var dismiss
+    @State private var showingConfirmation = false
+    @State private var showingExportSheet = false
+    @State private var isResetting = false
+    @State private var resetSuccess = false
+    
+    private var dataStats: DataStatistics {
+        qsoViewModel.getDataStatistics()
+    }
+    
+    var body: some View {
+        NavigationView {
+            List {
+                // MARK: - Warning Section
+                Section {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(.orange)
+                                .font(.title2)
+                            
+                            Text("⚠️ This action cannot be undone")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.orange)
+                        }
+                        
+                        Text("Resetting data will permanently delete all your QSOs, station profiles, and settings. This action cannot be reversed.")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 4)
+                }
+                
+                // MARK: - Data Statistics
+                if dataStats.hasData {
+                    Section("Current Data") {
+                        DataStatRow(
+                            icon: "radio.fill",
+                            title: "QSOs",
+                            value: "\(dataStats.qsoCount)",
+                            color: .blue
+                        )
+                        
+                        DataStatRow(
+                            icon: "antenna.radiowaves.left.and.right",
+                            title: "Station Profiles",
+                            value: "\(dataStats.stationCount)",
+                            color: .green
+                        )
+                        
+                        DataStatRow(
+                            icon: "person.2.fill",
+                            title: "Unique Callsigns",
+                            value: "\(dataStats.uniqueCallsigns)",
+                            color: .purple
+                        )
+                        
+                        DataStatRow(
+                            icon: "calendar",
+                            title: "Date Range",
+                            value: dataStats.dateRangeText,
+                            color: .orange
+                        )
+                    }
+                    
+                    // MARK: - Export Suggestion
+                    Section {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("💡 Export your data first")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                            
+                            Text("Before resetting, consider exporting your QSOs to ADIF or CSV format. You can import them back later if needed.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                            
+                            Button(action: {
+                                showingExportSheet = true
+                            }) {
+                                HStack {
+                                    Image(systemName: "square.and.arrow.up")
+                                    Text("Export Data Now")
+                                }
+                                .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .padding(.top, 8)
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+                
+                // MARK: - Reset Options
+                Section {
+                    Button(action: {
+                        showingConfirmation = true
+                    }) {
+                        HStack {
+                            Image(systemName: "trash.fill")
+                                .foregroundColor(.red)
+                            
+                            Text("Reset All Data")
+                                .foregroundColor(.red)
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                        }
+                    }
+                    .disabled(isResetting)
+                } header: {
+                    Text("Reset Options")
+                } footer: {
+                    Text("This will delete all QSOs, station profiles (except default), and reset all settings to factory defaults.")
+                }
+            }
+            .navigationTitle("Reset Data")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+            }
+        }
+        .alert("Confirm Reset", isPresented: $showingConfirmation) {
+            Button("Cancel", role: .cancel) { }
+            Button("Reset All Data", role: .destructive) {
+                performReset()
+            }
+        } message: {
+            Text("Are you sure you want to permanently delete all your QSO data? This action cannot be undone.")
+        }
+        .alert("Reset Complete", isPresented: $resetSuccess) {
+            Button("OK") {
+                dismiss()
+            }
+        } message: {
+            Text("All data has been successfully reset. The app will now show a clean state.")
+        }
+        .sheet(isPresented: $showingExportSheet) {
+            ExportView()
+        }
+    }
+    
+    private func performReset() {
+        isResetting = true
+        
+        // Simulate a brief delay for better UX
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let success = qsoViewModel.resetAllData()
+            isResetting = false
+            
+            if success {
+                resetSuccess = true
+            }
+        }
+    }
+}
+
+// MARK: - Data Stat Row
+struct DataStatRow: View {
+    let icon: String
+    let title: String
+    let value: String
+    let color: Color
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: icon)
+                .font(.title3)
+                .foregroundColor(color)
+                .frame(width: 24)
+            
+            Text(title)
+                .font(.body)
+            
+            Spacer()
+            
+            Text(value)
+                .font(.body)
+                .fontWeight(.medium)
+                .foregroundColor(.secondary)
+        }
     }
 }
 
