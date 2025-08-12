@@ -11,11 +11,17 @@ import CoreData
 struct SettingsView: View {
     @EnvironmentObject var qsoViewModel: QSOViewModel
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.openURL) private var openURL
     
     @State private var showingStationProfiles = false
     @State private var showingBandModeSettings = false
     @State private var showingImportExport = false
     @State private var showingAbout = false
+    
+    private let privacyPolicyURL = URL(string: "https://example.com/privacy")!
+    private let termsURL = URL(string: "https://example.com/terms")!
+    private var appVersion: String { Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—" }
+    private var buildNumber: String { Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—" }
     
     var body: some View {
         List {
@@ -124,6 +130,24 @@ struct SettingsView: View {
                     )
                 }
                 
+                Button(action: { openURL(privacyPolicyURL) }) {
+                    SettingsRow(
+                        icon: "hand.raised",
+                        title: "Privacy Policy",
+                        subtitle: "Read how we handle your data",
+                        color: .purple
+                    )
+                }
+                
+                Button(action: { openURL(termsURL) }) {
+                    SettingsRow(
+                        icon: "doc.text",
+                        title: "Terms & Conditions",
+                        subtitle: "Usage terms and legal information",
+                        color: .orange
+                    )
+                }
+                
                 Button(action: {
                     // TODO: Implement feedback
                 }) {
@@ -145,6 +169,14 @@ struct SettingsView: View {
                         color: .yellow
                     )
                 }
+                
+                // App Version (read-only row)
+                SettingsRow(
+                    icon: "number.square",
+                    title: "App Version",
+                    subtitle: "Version \(appVersion) (Build \(buildNumber))",
+                    color: .gray
+                )
             } header: {
                 Text("About & Support")
             }
@@ -460,30 +492,115 @@ struct ImportExportView: View {
     @EnvironmentObject var qsoViewModel: QSOViewModel
     @State private var showingImportPicker = false
     @State private var showingExportSheet = false
+    @State private var showingImportAlert = false
+    @State private var showingImportPreview = false
+    @State private var importMessage = ""
+    @State private var selectedImportFile: URL?
+    @State private var importPreviewData: ImportPreviewData?
+    @State private var isImporting = false
     
     var body: some View {
         List {
-            Section("Export") {
-                Button("Export to ADIF") {
-                    showingExportSheet = true
+            Section {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Import/Export QSOs")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                    
+                    Text("Import QSOs from ADIF files or export your log in various formats.")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                 }
-                
-                Button("Export to CSV") {
-                    // TODO: Implement CSV export
+                .padding(.vertical, 4)
+            }
+            
+            Section("Export") {
+                NavigationLink(destination: ExportView()) {
+                    SettingsRow(
+                        icon: "square.and.arrow.up",
+                        title: "Export QSOs",
+                        subtitle: "Export to ADIF or CSV format",
+                        color: .blue
+                    )
                 }
             }
             
             Section("Import") {
-                Button("Import from ADIF") {
+                Button(action: {
                     showingImportPicker = true
+                }) {
+                    SettingsRow(
+                        icon: "square.and.arrow.down",
+                        title: "Import from ADIF",
+                        subtitle: "Import QSOs from ADIF file",
+                        color: .green
+                    )
+                }
+                
+                if let previewData = importPreviewData {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Import Preview")
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                        
+                        Text("File: \(previewData.filename)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        
+                        Text("QSOs found: \(previewData.qsoCount)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        
+                        if previewData.hasErrors {
+                            Text("⚠️ File contains validation errors")
+                                .font(.caption)
+                                .foregroundColor(.orange)
+                        }
+                        
+                        HStack {
+                            Button("Import") {
+                                importADIFFile(from: selectedImportFile!)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .disabled(isImporting)
+                            
+                            Button("Cancel") {
+                                importPreviewData = nil
+                                selectedImportFile = nil
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                    }
+                    .padding(.vertical, 4)
+                }
+            }
+            
+            Section("Data Management") {
+                Button(action: {
+                    // TODO: Implement backup
+                }) {
+                    SettingsRow(
+                        icon: "icloud.and.arrow.up",
+                        title: "Backup to iCloud",
+                        subtitle: "Create backup of your QSO log",
+                        color: .blue
+                    )
+                }
+                
+                Button(action: {
+                    // TODO: Implement restore
+                }) {
+                    SettingsRow(
+                        icon: "icloud.and.arrow.down",
+                        title: "Restore from iCloud",
+                        subtitle: "Restore QSO log from backup",
+                        color: .orange
+                    )
                 }
             }
         }
         .navigationTitle("Import/Export")
         .navigationBarTitleDisplayMode(.large)
-        .sheet(isPresented: $showingExportSheet) {
-            ExportView()
-        }
         .fileImporter(
             isPresented: $showingImportPicker,
             allowedContentTypes: [.plainText],
@@ -492,20 +609,211 @@ struct ImportExportView: View {
             switch result {
             case .success(let urls):
                 if let url = urls.first {
-                    importADIFFile(from: url)
+                    selectedImportFile = url
+                    previewADIFFile(from: url)
                 }
             case .failure(let error):
-                print("Import failed: \(error)")
+                importMessage = "Import failed: \(error.localizedDescription)"
+                showingImportAlert = true
+            }
+        }
+        .alert("Import Result", isPresented: $showingImportAlert) {
+            Button("OK") { }
+        } message: {
+            Text(importMessage)
+        }
+        .sheet(isPresented: $showingImportPreview) {
+            ImportPreviewView(previewData: importPreviewData!) {
+                importADIFFile(from: selectedImportFile!)
             }
         }
     }
     
+    private func previewADIFFile(from url: URL) {
+        do {
+            let content = try String(contentsOf: url)
+            let result = qsoViewModel.previewADIFImport(content)
+            importPreviewData = ImportPreviewData(
+                filename: url.lastPathComponent,
+                qsoCount: result.importedCount,
+                hasErrors: result.errorCount > 0,
+                errorCount: result.errorCount,
+                warningCount: result.warnings.count,
+                duplicateCount: result.duplicateCount
+            )
+        } catch {
+            importMessage = "Failed to read ADIF file: \(error.localizedDescription)"
+            showingImportAlert = true
+        }
+    }
+    
     private func importADIFFile(from url: URL) {
+        isImporting = true
+        
         do {
             let content = try String(contentsOf: url)
             qsoViewModel.importFromADIF(content)
+            importMessage = "ADIF file imported successfully"
+            showingImportAlert = true
+            
+            // Clear preview data after successful import
+            importPreviewData = nil
+            selectedImportFile = nil
         } catch {
-            print("Failed to read ADIF file: \(error)")
+            importMessage = "Failed to read ADIF file: \(error.localizedDescription)"
+            showingImportAlert = true
+        }
+        
+        isImporting = false
+    }
+}
+
+// MARK: - Import Preview Data
+struct ImportPreviewData {
+    let filename: String
+    let qsoCount: Int
+    let hasErrors: Bool
+    let errorCount: Int
+    let warningCount: Int
+    let duplicateCount: Int
+}
+
+// MARK: - Import Preview View
+struct ImportPreviewView: View {
+    let previewData: ImportPreviewData
+    let onImport: () -> Void
+    @Environment(\.dismiss) private var dismiss
+    
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Image(systemName: "doc.text")
+                                .font(.title2)
+                                .foregroundColor(.blue)
+                            
+                            VStack(alignment: .leading) {
+                                Text(previewData.filename)
+                                    .font(.headline)
+                                Text("ADIF Import Preview")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        
+                        Divider()
+                        
+                        ImportPreviewRow(
+                            icon: "number.circle",
+                            title: "QSOs Found",
+                            value: "\(previewData.qsoCount)",
+                            color: .green
+                        )
+                        
+                        if previewData.duplicateCount > 0 {
+                            ImportPreviewRow(
+                                icon: "exclamationmark.triangle",
+                                title: "Potential Duplicates",
+                                value: "\(previewData.duplicateCount)",
+                                color: .orange
+                            )
+                        }
+                        
+                        if previewData.errorCount > 0 {
+                            ImportPreviewRow(
+                                icon: "xmark.circle",
+                                title: "Validation Errors",
+                                value: "\(previewData.errorCount)",
+                                color: .red
+                            )
+                        }
+                        
+                        if previewData.warningCount > 0 {
+                            ImportPreviewRow(
+                                icon: "exclamationmark.triangle",
+                                title: "Warnings",
+                                value: "\(previewData.warningCount)",
+                                color: .yellow
+                            )
+                        }
+                    }
+                    .padding(.vertical, 8)
+                }
+                
+                Section {
+                    if previewData.hasErrors {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("⚠️ Import Issues Detected")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .foregroundColor(.orange)
+                            
+                            Text("This file contains validation errors. Some QSOs may not import correctly. Review the import results after completion.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.vertical, 4)
+                    } else {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("✅ File Ready for Import")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .foregroundColor(.green)
+                            
+                            Text("The file appears to be valid and ready for import.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+            }
+            .navigationTitle("Import Preview")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Import") {
+                        onImport()
+                        dismiss()
+                    }
+                    .fontWeight(.semibold)
+                    .disabled(previewData.qsoCount == 0)
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Import Preview Row
+struct ImportPreviewRow: View {
+    let icon: String
+    let title: String
+    let value: String
+    let color: Color
+    
+    var body: some View {
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(color)
+                .frame(width: 20)
+            
+            Text(title)
+                .font(.subheadline)
+            
+            Spacer()
+            
+            Text(value)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundColor(color)
         }
     }
 }
@@ -514,33 +822,81 @@ struct ImportExportView: View {
 struct ExportView: View {
     @EnvironmentObject var qsoViewModel: QSOViewModel
     @Environment(\.dismiss) private var dismiss
+    @State private var isExporting = false
+    @State private var exportProgress = 0.0
+    @State private var showingExportSuccess = false
+    @State private var exportMessage = ""
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
-                Text("Export QSOs")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                Text("Export your QSO log in ADIF format for use with other logging software.")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-                
-                Button("Export All QSOs") {
-                    exportAllQSOs()
+            List {
+                Section {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Export QSOs")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        
+                        Text("Export your QSO log in various formats for use with other logging software or backup purposes.")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 4)
                 }
-                .buttonStyle(.borderedProminent)
                 
-                Button("Export Filtered QSOs") {
-                    exportFilteredQSOs()
+                Section("Export Format") {
+                    ExportOptionRow(
+                        icon: "doc.text",
+                        title: "ADIF Format",
+                        subtitle: "Standard format for amateur radio logging",
+                        color: .blue
+                    ) {
+                        exportADIF()
+                    }
+                    
+                    ExportOptionRow(
+                        icon: "tablecells",
+                        title: "CSV Format",
+                        subtitle: "Comma-separated values for spreadsheet import",
+                        color: .green
+                    ) {
+                        exportCSV()
+                    }
                 }
-                .buttonStyle(.bordered)
                 
-                Spacer()
+                Section("Export Options") {
+                    ExportOptionRow(
+                        icon: "square.and.arrow.up",
+                        title: "Export All QSOs",
+                        subtitle: "Export your complete QSO log",
+                        color: .orange
+                    ) {
+                        exportAllQSOs()
+                    }
+                    
+                    ExportOptionRow(
+                        icon: "line.3.horizontal.decrease.circle",
+                        title: "Export Filtered QSOs",
+                        subtitle: "Export only currently filtered QSOs",
+                        color: .purple
+                    ) {
+                        exportFilteredQSOs()
+                    }
+                }
+                
+                if isExporting {
+                    Section {
+                        VStack(spacing: 12) {
+                            ProgressView(value: exportProgress)
+                                .progressViewStyle(LinearProgressViewStyle())
+                            
+                            Text("Exporting QSOs...")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.vertical, 8)
+                    }
+                }
             }
-            .padding()
             .navigationTitle("Export")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -550,20 +906,75 @@ struct ExportView: View {
                     }
                 }
             }
+            .alert("Export Complete", isPresented: $showingExportSuccess) {
+                Button("OK") { }
+            } message: {
+                Text(exportMessage)
+            }
+        }
+    }
+    
+    private func exportADIF() {
+        isExporting = true
+        exportProgress = 0.3
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            exportProgress = 0.7
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                exportProgress = 1.0
+                isExporting = false
+                exportAllQSOs()
+            }
+        }
+    }
+    
+    private func exportCSV() {
+        isExporting = true
+        exportProgress = 0.3
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            exportProgress = 0.7
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                exportProgress = 1.0
+                isExporting = false
+                exportAllQSOsAsCSV()
+            }
         }
     }
     
     private func exportAllQSOs() {
         let adifContent = qsoViewModel.exportToADIF()
-        shareADIFContent(adifContent, filename: "qsolog_all.adi")
+        let filename = "qsolog_all_\(formatDate(Date())).adi"
+        shareContent(adifContent, filename: filename, contentType: "text/plain")
     }
     
     private func exportFilteredQSOs() {
         let adifContent = qsoViewModel.exportToADIF()
-        shareADIFContent(adifContent, filename: "qsolog_filtered.adi")
+        let filename = "qsolog_filtered_\(formatDate(Date())).adi"
+        shareContent(adifContent, filename: filename, contentType: "text/plain")
     }
     
-    private func shareADIFContent(_ content: String, filename: String) {
+    private func exportAllQSOsAsCSV() {
+        let csvContent = qsoViewModel.exportToCSV()
+        let filename = "qsolog_all_\(formatDate(Date())).csv"
+        shareContent(csvContent, filename: filename, contentType: "text/csv")
+    }
+    
+    private func exportFilteredQSOsAsCSV() {
+        let csvContent = qsoViewModel.exportToCSV()
+        let filename = "qsolog_filtered_\(formatDate(Date())).csv"
+        shareContent(csvContent, filename: filename, contentType: "text/csv")
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd_HHmmss"
+        return formatter.string(from: date)
+    }
+    
+    private func shareContent(_ content: String, filename: String, contentType: String) {
         let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
         
         do {
@@ -574,18 +985,68 @@ struct ExportView: View {
                 applicationActivities: nil
             )
             
+            // Set the content type for better sharing
+            activityVC.setValue(contentType, forKey: "contentType")
+            
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let window = windowScene.windows.first {
                 window.rootViewController?.present(activityVC, animated: true)
+                
+                // Show success message
+                exportMessage = "Successfully exported \(filename)"
+                showingExportSuccess = true
             }
         } catch {
-            print("Failed to create export file: \(error)")
+            exportMessage = "Failed to create export file: \(error.localizedDescription)"
+            showingExportSuccess = true
         }
+    }
+}
+
+// MARK: - Export Option Row
+struct ExportOptionRow: View {
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 12) {
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundColor(color)
+                    .frame(width: 24)
+                
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .foregroundColor(.primary)
+                    
+                    Text(subtitle)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.vertical, 2)
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
 // MARK: - About View
 struct AboutView: View {
+    private var appVersion: String { Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—" }
+    private var buildNumber: String { Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—" }
+    
     var body: some View {
         List {
             Section {
@@ -598,7 +1059,7 @@ struct AboutView: View {
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("Version 1.0.0")
+                    Text("Version \(appVersion) (Build \(buildNumber))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }

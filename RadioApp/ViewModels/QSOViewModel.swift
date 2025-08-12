@@ -271,18 +271,123 @@ class QSOViewModel: ObservableObject {
         return adifService.exportToADIF(qsos: filteredQSOs.isEmpty ? qsos : filteredQSOs)
     }
     
+    func exportToCSV() -> String {
+        let qsosToExport = filteredQSOs.isEmpty ? qsos : filteredQSOs
+        
+        // CSV Header
+        var csvContent = "Date,Time,Callsign,Band,Mode,Frequency,RST Sent,RST Received,TX Power,Operator,Grid,DXCC,QTH,Rig,Antenna,Contest,Serial Sent,Serial Received,Duration,Notes,QSL Sent,QSL Received,QSL Sent Date,QSL Received Date,QSL Method\n"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        
+        for qso in qsosToExport {
+            var row: [String] = []
+            
+            // Date and Time
+            if let datetime = qso.datetime {
+                row.append(dateFormatter.string(from: datetime))
+                row.append(timeFormatter.string(from: datetime))
+            } else {
+                row.append("")
+                row.append("")
+            }
+            
+            // Basic QSO info
+            row.append(qso.callsign ?? "")
+            row.append(qso.band ?? "")
+            row.append(qso.mode ?? "")
+            row.append(qso.frequencyMHz > 0 ? String(format: "%.6f", qso.frequencyMHz) : "")
+            row.append(qso.rstSent ?? "")
+            row.append(qso.rstReceived ?? "")
+            row.append(qso.txPowerW > 0 ? String(format: "%.1f", qso.txPowerW) : "")
+            row.append(qso.operatorCallsign ?? "")
+            row.append(qso.grid ?? "")
+            row.append(qso.dxcc ?? "")
+            row.append(qso.qth ?? "")
+            row.append(qso.rig ?? "")
+            row.append(qso.antenna ?? "")
+            row.append(qso.contestName ?? "")
+            row.append(qso.serialSent > 0 ? String(qso.serialSent) : "")
+            row.append(qso.serialReceived > 0 ? String(qso.serialReceived) : "")
+            row.append(qso.qsoDurationSec > 0 ? String(qso.qsoDurationSec) : "")
+            row.append(escapeCSVField(qso.notes ?? ""))
+            
+            // QSL info
+            row.append(qso.qslSent ? "Y" : "N")
+            row.append(qso.qslReceived ? "Y" : "N")
+            row.append(qso.qslSentDate != nil ? dateFormatter.string(from: qso.qslSentDate!) : "")
+            row.append(qso.qslReceivedDate != nil ? dateFormatter.string(from: qso.qslReceivedDate!) : "")
+            row.append(qso.qslMethod ?? "")
+            
+            csvContent += row.joined(separator: ",") + "\n"
+        }
+        
+        return csvContent
+    }
+    
+    private func escapeCSVField(_ field: String) -> String {
+        if field.contains(",") || field.contains("\"") || field.contains("\n") {
+            return "\"\(field.replacingOccurrences(of: "\"", with: "\"\""))\""
+        }
+        return field
+    }
+    
     func importFromADIF(_ adifContent: String) {
         let result = adifService.importFromADIF(adifContent)
         
+        // Build comprehensive import summary
+        var summaryMessages: [String] = []
+        
+        if result.importedCount > 0 {
+            summaryMessages.append("✅ Successfully imported \(result.importedCount) QSO(s)")
+        }
+        
+        if result.duplicateCount > 0 {
+            summaryMessages.append("⚠️ Found \(result.duplicateCount) duplicate QSO(s) - skipped")
+        }
+        
         if result.errorCount > 0 {
-            showError(message: "Import completed with \(result.errorCount) errors. \(result.importedCount) QSOs imported.")
-        } else if result.duplicateCount > 0 {
-            showError(message: "Import completed. \(result.importedCount) QSOs imported, \(result.duplicateCount) duplicates found.")
+            summaryMessages.append("❌ \(result.errorCount) QSO(s) failed to import due to errors")
+        }
+        
+        if result.warnings.count > 0 {
+            summaryMessages.append("⚠️ \(result.warnings.count) warning(s) during import")
+        }
+        
+        // Show detailed error information if there are errors
+        if result.errorCount > 0 {
+            let errorDetails = result.errors.prefix(5).map { "Line \($0.lineNumber): \($0.message)" }.joined(separator: "\n")
+            let errorMessage = summaryMessages.joined(separator: "\n") + "\n\nFirst few errors:\n" + errorDetails
+            showError(message: errorMessage)
+        } else if result.warnings.count > 0 {
+            // Show warnings if no errors but warnings exist
+            let warningDetails = result.warnings.prefix(3).map { "Line \($0.lineNumber): \($0.message)" }.joined(separator: "\n")
+            let warningMessage = summaryMessages.joined(separator: "\n") + "\n\nFirst few warnings:\n" + warningDetails
+            showError(message: warningMessage)
         } else {
-            showError(message: "Successfully imported \(result.importedCount) QSOs.")
+            // Success message
+            let successMessage = summaryMessages.joined(separator: "\n")
+            showError(message: successMessage)
         }
         
         loadQSOs()
+    }
+    
+    func previewADIFImport(_ adifContent: String) -> ImportResult {
+        // Use a temporary context for preview to avoid affecting the main data
+        let tempContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        tempContext.parent = context
+        
+        let tempADIFService = ADIFService(context: tempContext)
+        let result = tempADIFService.importFromADIF(adifContent)
+        
+        // Clean up temporary context
+        tempContext.rollback()
+        
+        return result
     }
     
     // MARK: - Helper Methods

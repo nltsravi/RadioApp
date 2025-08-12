@@ -43,13 +43,6 @@ struct MainTabView: View {
             }
             .tag(3)
             .tabItem { Label("Settings", systemImage: "gear") }
-
-            // MARK: - Account Tab
-            NavigationView {
-                AccountView()
-            }
-            .tag(4)
-            .tabItem { Label("Account", systemImage: "person.crop.circle") }
             }
             .onChange(of: selection) { _ in
                 // Trigger ripple when selection changes via tab tap
@@ -66,8 +59,6 @@ struct MainTabView: View {
                 if selection == 2 { WaterRippleView(key: rippleKey).frame(width: 54, height: 54).padding(.bottom, 2) }
                 if selection < 2 { Spacer() }
                 if selection == 3 { WaterRippleView(key: rippleKey).frame(width: 54, height: 54).padding(.bottom, 2) }
-                if selection < 3 { Spacer() }
-                if selection == 4 { WaterRippleView(key: rippleKey).frame(width: 54, height: 54).padding(.bottom, 2) }
                 Spacer()
             }
             .allowsHitTesting(false)

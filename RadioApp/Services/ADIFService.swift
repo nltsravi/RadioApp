@@ -178,13 +178,29 @@ class ADIFService {
         var importedCount = 0
         var errors: [ImportError] = []
         var duplicates: [QSO] = []
+        var warnings: [ImportWarning] = []
+        
+        // Validate file format
+        if !isValidADIFFormat(adifContent) {
+            errors.append(ImportError(lineNumber: 0, message: "Invalid ADIF file format. Please check the file structure."))
+            return ImportResult(
+                importedCount: 0,
+                errorCount: errors.count,
+                duplicateCount: 0,
+                warnings: warnings,
+                errors: errors,
+                duplicates: duplicates
+            )
+        }
         
         let lines = adifContent.components(separatedBy: .newlines)
         var currentQSO: [String: String] = [:]
+        var qsoLineNumber = 0
         
         for (lineNumber, line) in lines.enumerated() {
             let trimmedLine = line.trimmingCharacters(in: .whitespacesAndNewlines)
             
+            // Skip header lines and empty lines
             if trimmedLine.isEmpty || trimmedLine.hasPrefix("Generated-By:") || 
                trimmedLine.hasPrefix("ADIF_VER:") || trimmedLine.hasPrefix("PROGRAMID:") ||
                trimmedLine.hasPrefix("PROGRAMVERSION:") || trimmedLine == "<EOH>" {
@@ -192,20 +208,41 @@ class ADIFService {
             }
             
             if trimmedLine == "<eor>" {
+                qsoLineNumber += 1
                 // Process the current QSO
-                if let qso = createQSOFromADIF(currentQSO) {
-                    // Check for duplicates
-                    if let existingQSO = findDuplicateQSO(qso) {
-                        duplicates.append(existingQSO)
-                    } else {
-                        do {
-                            try context.save()
-                            importedCount += 1
-                        } catch {
-                            errors.append(ImportError(lineNumber: lineNumber, message: "Failed to save QSO: \(error.localizedDescription)"))
+                let validationResult = validateQSOFields(currentQSO, lineNumber: qsoLineNumber)
+                
+                if validationResult.isValid {
+                    if let qso = createQSOFromADIF(currentQSO) {
+                        // Check for duplicates
+                        if let existingQSO = findDuplicateQSO(qso) {
+                            duplicates.append(existingQSO)
+                            warnings.append(ImportWarning(
+                                lineNumber: qsoLineNumber,
+                                message: "Duplicate QSO found: \(qso.callsign ?? "Unknown") on \(qso.band ?? "Unknown") at \(formatDateTime(qso.datetime))"
+                            ))
+                        } else {
+                            do {
+                                try context.save()
+                                importedCount += 1
+                            } catch {
+                                errors.append(ImportError(
+                                    lineNumber: qsoLineNumber,
+                                    message: "Failed to save QSO: \(error.localizedDescription)"
+                                ))
+                            }
                         }
+                    } else {
+                        errors.append(ImportError(
+                            lineNumber: qsoLineNumber,
+                            message: "Failed to create QSO from ADIF data"
+                        ))
                     }
+                } else {
+                    errors.append(contentsOf: validationResult.errors)
+                    warnings.append(contentsOf: validationResult.warnings)
                 }
+                
                 currentQSO.removeAll()
                 continue
             }
@@ -213,6 +250,11 @@ class ADIFService {
             // Parse ADIF field
             if let field = parseADIFField(trimmedLine) {
                 currentQSO[field.key] = field.value
+            } else if !trimmedLine.isEmpty {
+                warnings.append(ImportWarning(
+                    lineNumber: lineNumber + 1,
+                    message: "Invalid ADIF field format: \(trimmedLine)"
+                ))
             }
         }
         
@@ -220,9 +262,233 @@ class ADIFService {
             importedCount: importedCount,
             errorCount: errors.count,
             duplicateCount: duplicates.count,
+            warnings: warnings,
             errors: errors,
             duplicates: duplicates
         )
+    }
+    
+    // MARK: - Validation Methods
+    private func isValidADIFFormat(_ content: String) -> Bool {
+        // Check if content contains ADIF markers
+        let hasEOH = content.contains("<EOH>")
+        let hasEOR = content.contains("<eor>")
+        let hasADIFFields = content.contains("<") && content.contains(">")
+        
+        return hasEOH && hasEOR && hasADIFFields
+    }
+    
+    private func validateQSOFields(_ fields: [String: String], lineNumber: Int) -> ValidationResult {
+        var errors: [ImportError] = []
+        var warnings: [ImportWarning] = []
+        
+        // Required field validations
+        if let callsign = fields[ADIFField.call] {
+            if !isValidCallsign(callsign) {
+                errors.append(ImportError(
+                    lineNumber: lineNumber,
+                    message: "Invalid callsign format: \(callsign)"
+                ))
+            }
+        } else {
+            errors.append(ImportError(
+                lineNumber: lineNumber,
+                message: "Missing required field: CALL"
+            ))
+        }
+        
+        // Date and time validation
+        if let dateStr = fields[ADIFField.qsoDate] {
+            if !isValidADIFDate(dateStr) {
+                errors.append(ImportError(
+                    lineNumber: lineNumber,
+                    message: "Invalid date format: \(dateStr). Expected YYYYMMDD"
+                ))
+            }
+        } else {
+            errors.append(ImportError(
+                lineNumber: lineNumber,
+                message: "Missing required field: QSO_DATE"
+            ))
+        }
+        
+        if let timeStr = fields[ADIFField.timeOn] {
+            if !isValidADIFTime(timeStr) {
+                errors.append(ImportError(
+                    lineNumber: lineNumber,
+                    message: "Invalid time format: \(timeStr). Expected HHMM"
+                ))
+            }
+        } else {
+            errors.append(ImportError(
+                lineNumber: lineNumber,
+                message: "Missing required field: TIME_ON"
+            ))
+        }
+        
+        // Band validation
+        if let band = fields[ADIFField.band] {
+            if !isValidBand(band) {
+                warnings.append(ImportWarning(
+                    lineNumber: lineNumber,
+                    message: "Unrecognized band: \(band)"
+                ))
+            }
+        } else {
+            errors.append(ImportError(
+                lineNumber: lineNumber,
+                message: "Missing required field: BAND"
+            ))
+        }
+        
+        // Mode validation
+        if let mode = fields[ADIFField.mode] {
+            if !isValidMode(mode) {
+                warnings.append(ImportWarning(
+                    lineNumber: lineNumber,
+                    message: "Unrecognized mode: \(mode)"
+                ))
+            }
+        } else {
+            errors.append(ImportError(
+                lineNumber: lineNumber,
+                message: "Missing required field: MODE"
+            ))
+        }
+        
+        // RST validation
+        if let rstSent = fields[ADIFField.rstSent] {
+            if !isValidRST(rstSent) {
+                warnings.append(ImportWarning(
+                    lineNumber: lineNumber,
+                    message: "Invalid RST_SENT format: \(rstSent)"
+                ))
+            }
+        }
+        
+        if let rstReceived = fields[ADIFField.rstRcvd] {
+            if !isValidRST(rstReceived) {
+                warnings.append(ImportWarning(
+                    lineNumber: lineNumber,
+                    message: "Invalid RST_RCVD format: \(rstReceived)"
+                ))
+            }
+        }
+        
+        // Frequency validation
+        if let freqStr = fields[ADIFField.freq] {
+            if let freq = Double(freqStr) {
+                if !isValidFrequency(freq) {
+                    warnings.append(ImportWarning(
+                        lineNumber: lineNumber,
+                        message: "Frequency out of expected range: \(freq) MHz"
+                    ))
+                }
+            } else {
+                errors.append(ImportError(
+                    lineNumber: lineNumber,
+                    message: "Invalid frequency format: \(freqStr)"
+                ))
+            }
+        }
+        
+        // Power validation
+        if let powerStr = fields[ADIFField.txPwr] {
+            if let power = Double(powerStr) {
+                if !isValidPower(power) {
+                    warnings.append(ImportWarning(
+                        lineNumber: lineNumber,
+                        message: "Power out of expected range: \(power)W"
+                    ))
+                }
+            } else {
+                errors.append(ImportError(
+                    lineNumber: lineNumber,
+                    message: "Invalid power format: \(powerStr)"
+                ))
+            }
+        }
+        
+        // Grid square validation
+        if let grid = fields[ADIFField.gridSquare] {
+            if !isValidGridSquare(grid) {
+                warnings.append(ImportWarning(
+                    lineNumber: lineNumber,
+                    message: "Invalid grid square format: \(grid)"
+                ))
+            }
+        }
+        
+        return ValidationResult(
+            isValid: errors.isEmpty,
+            errors: errors,
+            warnings: warnings
+        )
+    }
+    
+    // MARK: - Field Validation Methods
+    private func isValidCallsign(_ callsign: String) -> Bool {
+        let pattern = "^[A-Z0-9]{1,3}[0-9][A-Z0-9]*[A-Z]$"
+        let regex = try? NSRegularExpression(pattern: pattern)
+        let range = NSRange(location: 0, length: callsign.utf16.count)
+        return regex?.firstMatch(in: callsign, range: range) != nil
+    }
+    
+    private func isValidADIFDate(_ dateStr: String) -> Bool {
+        guard dateStr.count == 8 else { return false }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter.date(from: dateStr) != nil
+    }
+    
+    private func isValidADIFTime(_ timeStr: String) -> Bool {
+        guard timeStr.count == 4 else { return false }
+        let hour = Int(timeStr.prefix(2)) ?? 0
+        let minute = Int(timeStr.suffix(2)) ?? 0
+        return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59
+    }
+    
+    private func isValidBand(_ band: String) -> Bool {
+        let validBands = ["160m", "80m", "40m", "30m", "20m", "17m", "15m", "12m", "10m", "6m", "2m", "70cm", "23cm", "13cm", "3cm"]
+        return validBands.contains(band.lowercased())
+    }
+    
+    private func isValidMode(_ mode: String) -> Bool {
+        let validModes = ["SSB", "CW", "FM", "AM", "FT8", "FT4", "RTTY", "PSK31", "PSK63", "JT65", "JT9", "FSK441", "JT6M", "ISCAT", "MSK144", "QRA64", "FTDX", "JS8", "FT8CALL", "FST4", "FST4W"]
+        return validModes.contains(mode.uppercased())
+    }
+    
+    private func isValidRST(_ rst: String) -> Bool {
+        // RST format: 599 for CW/digital, 59 for phone
+        let pattern = "^[1-5][1-9][1-9]$"
+        let regex = try? NSRegularExpression(pattern: pattern)
+        let range = NSRange(location: 0, length: rst.utf16.count)
+        return regex?.firstMatch(in: rst, range: range) != nil
+    }
+    
+    private func isValidFrequency(_ freq: Double) -> Bool {
+        // Valid amateur radio frequencies (rough range)
+        return freq >= 0.135 && freq <= 250.0
+    }
+    
+    private func isValidPower(_ power: Double) -> Bool {
+        // Reasonable power range
+        return power >= 0.1 && power <= 1500.0
+    }
+    
+    private func isValidGridSquare(_ grid: String) -> Bool {
+        // Maidenhead grid square format: AA00AA
+        let pattern = "^[A-R]{2}[0-9]{2}[A-X]{2}$"
+        let regex = try? NSRegularExpression(pattern: pattern)
+        let range = NSRange(location: 0, length: grid.utf16.count)
+        return regex?.firstMatch(in: grid.uppercased(), range: range) != nil
+    }
+    
+    private func formatDateTime(_ date: Date?) -> String {
+        guard let date = date else { return "Unknown" }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return formatter.string(from: date)
     }
     
     // MARK: - Helper Methods
@@ -348,6 +614,7 @@ struct ImportResult {
     let importedCount: Int
     let errorCount: Int
     let duplicateCount: Int
+    let warnings: [ImportWarning]
     let errors: [ImportError]
     let duplicates: [QSO]
 }
@@ -356,4 +623,17 @@ struct ImportResult {
 struct ImportError {
     let lineNumber: Int
     let message: String
+}
+
+// MARK: - Import Warning
+struct ImportWarning {
+    let lineNumber: Int
+    let message: String
+}
+
+// MARK: - Validation Result
+struct ValidationResult {
+    let isValid: Bool
+    let errors: [ImportError]
+    let warnings: [ImportWarning]
 }
