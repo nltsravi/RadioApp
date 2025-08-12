@@ -19,8 +19,12 @@ struct SettingsView: View {
     @State private var showingAbout = false
     @State private var showingResetData = false
     
-    private let privacyPolicyURL = URL(string: "https://example.com/privacy")!
-    private let termsURL = URL(string: "https://example.com/terms")!
+    private let privacyPolicyURL = URL(string: "https://nltsravi.github.io/qso-policies/privacy-policy.html")!
+    private let termsURL = URL(string: "https://nltsravi.github.io/qso-policies/terms-and-conditions.html")!
+    
+    // App Store URLs - Replace with actual App Store ID when app is published
+    private let appStoreRatingURL = URL(string: "https://apps.apple.com/app/id1234567890?action=write-review")!
+    private let appStoreFeedbackURL = URL(string: "https://apps.apple.com/app/id1234567890?action=write-review")!
     private var appVersion: String { Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—" }
     private var buildNumber: String { Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—" }
     
@@ -150,7 +154,7 @@ struct SettingsView: View {
                 }
                 
                 Button(action: {
-                    // TODO: Implement feedback
+                    openURL(appStoreFeedbackURL)
                 }) {
                     SettingsRow(
                         icon: "envelope",
@@ -161,7 +165,7 @@ struct SettingsView: View {
                 }
                 
                 Button(action: {
-                    // TODO: Implement rate app
+                    openURL(appStoreRatingURL)
                 }) {
                     SettingsRow(
                         icon: "star",
